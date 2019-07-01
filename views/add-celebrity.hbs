@@ -1,0 +1,25 @@
+<h3>Add a new item</h3>
+
+<form action="/add-celebrity" method="post">
+
+  Name: <input type="text" name="name" required><br>
+
+  {{!-- Solution 1 --}}
+  {{!-- Occupation: <select name="occcupation">
+    <option value="actor">Actor</option>
+    <option value="director">Director</option>
+    <option value="comedian">Comedian</option>
+    <option value="other">Other</option>
+  </select> <br> --}}
+
+  {{!-- Solution 2 --}}
+  Occupation: <select name="occcupation">
+    {{#each celebrityOccupations}}
+    <option value="{{this.value}}">{{this.string}}</option>
+    {{/each}}
+  </select> <br>
+
+  Birth Year: <input type="number" name="birthYear" min="1800" max="2019"><br>
+
+  <button>Add</button>
+</form>
